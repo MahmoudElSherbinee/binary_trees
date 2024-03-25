@@ -123,6 +123,8 @@ int calculate_tree_balance(const binary_tree_t *root);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task 17. Sibling */
+binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 /*===========================================================================*/
 
 /*===========================================================================*/
