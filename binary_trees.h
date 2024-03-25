@@ -111,6 +111,9 @@ size_t binary_tree_nodes(const binary_tree_t *tree);
 int binary_tree_balance(const binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task 15. Is full */
+int is_binary_tree_full(const binary_tree_t *root);
+int binary_tree_is_full(const binary_tree_t *tree);
 /*===========================================================================*/
 
 /*===========================================================================*/
