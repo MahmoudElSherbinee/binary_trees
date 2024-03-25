@@ -1,4 +1,3 @@
-```plaintext
 # Binary Trees Data Structure in C
 
 ## Overview
@@ -24,7 +23,7 @@ To use this binary tree implementation, follow these steps:
 
    ```bash
    git clone https://github.com/yourusername/binary-trees-c.git
-   ```
+
 
 2. Navigate to the cloned directory:
 
