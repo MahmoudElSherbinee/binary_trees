@@ -105,6 +105,10 @@ size_t binary_tree_leaves(const binary_tree_t *tree);
 size_t binary_tree_nodes(const binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task 14. Balance factor */
+/* size_t calculate_binary_tree_height(const binary_tree_t *root); */
+/* size_t binary_tree_height(const binary_tree_t *tree); */
+int binary_tree_balance(const binary_tree_t *tree);
 /*===========================================================================*/
 
 /*===========================================================================*/
