@@ -116,6 +116,11 @@ int is_binary_tree_full(const binary_tree_t *root);
 int binary_tree_is_full(const binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task 16. Is perfect */
+/* int binary_tree_balance(const binary_tree_t *tree); */
+/* size_t calculate_binary_tree_height(const binary_tree_t *root); */
+int calculate_tree_balance(const binary_tree_t *root);
+int binary_tree_is_perfect(const binary_tree_t *tree);
 /*===========================================================================*/
 
 /*===========================================================================*/
