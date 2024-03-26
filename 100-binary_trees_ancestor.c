@@ -1,5 +1,6 @@
 #include "binary_trees.h"
-
+binary_tree_t *recurse_for_ancestor(binary_tree_t *root,
+	const binary_tree_t *first, const binary_tree_t *second);
 /**
 * find_lowest_common_ancestor - Recursively finds the lowest
 * common ancestor of two nodes in a binary tree.
@@ -15,10 +16,10 @@
 * Return: A pointer to the lowest common ancestor node,
 * or NULL if one of the nodes is not found or if the tree is empty.
 */
-binary_tree_t *find_lowest_common_ancestor(binary_tree_t *root,
-											const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *recurse_for_ancestor(binary_tree_t *root,
+	const binary_tree_t *first, const binary_tree_t *second)
 {
-	binary_tree_t *left_lca = NULL, *right_lca = NULL;
+	binary_tree_t *leftLCA = NULL, *rightLCA = NULL;
 
 	if (root == NULL || first == NULL || second == NULL)
 		return (NULL);
@@ -26,16 +27,15 @@ binary_tree_t *find_lowest_common_ancestor(binary_tree_t *root,
 	if (root == first || root == second)
 		return (root);
 
-	left_lca = find_lowest_common_ancestor(root->left, first, second);
-	right_lca = find_lowest_common_ancestor(root->right, first, second);
+	leftLCA = recurse_for_ancestor(root->left, first, second);
+	rightLCA = recurse_for_ancestor(root->right, first, second);
 
-	if (left_lca && right_lca)
+	if (leftLCA && rightLCA)
 		return (root);
 
-	if (left_lca != NULL)
-		return (left_lca);
-
-	return (right_lca);
+	if (leftLCA != NULL)
+		return (leftLCA);
+	return (rightLCA);
 }
 
 /**
@@ -59,15 +59,14 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 {
 	binary_tree_t *root = NULL;
 
-	/* If either of the given nodes is NULL, they cannot have a common ancestor */
 	if (!first || !second)
 		return (NULL);
 
-	/* Find the root node of the binary tree */
+	/* find root node */
 	root = (binary_tree_t *)first;
 	while (root->parent != NULL)
 		root = root->parent;
 
-	/* Perform lowest common ancestor detection */
-	return (find_lowest_common_ancestor(root, first, second));
+	/* perform lowest common anscestor detection */
+	return (recurse_for_ancestor(root, first, second));
 }
