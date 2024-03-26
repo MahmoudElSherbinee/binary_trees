@@ -166,11 +166,13 @@ int IsBinarySearch_tree_recursive(const binary_tree_t *root, int min, int max);
 int binary_tree_is_bst(const binary_tree_t *tree);
 /*===========================================================================*/
 
-/* Task (110)25. BST - Insert */
+/* Task (111)25. BST - Insert */
 bst_t *bst_insert_recursive(bst_t *root, int value);
 bst_t *bst_insert(bst_t **tree, int value);
 /*===========================================================================*/
 
+/* Task (112) 26. BST - Array to BST */
+bst_t *array_to_bst(int *array, size_t size);
 /*===========================================================================*/
 
 /*===========================================================================*/
