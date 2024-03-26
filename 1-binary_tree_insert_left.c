@@ -17,12 +17,13 @@
  */
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
+	binary_tree_t *new = NULL;
 	/* Check if the parent node exists */
 	if (parent == NULL)
 		return (NULL);
 
 	/* Declare and initialize a new node */
-	binary_tree_t *new = malloc(sizeof(binary_tree_t));
+	new = malloc(sizeof(binary_tree_t));
 
 	if (!new)
 		return (NULL);
