@@ -134,8 +134,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*/////////////////////// ADVANCED TASKS /////////////////////*/
 
 /* Task 19. Lowest common ancestor */
-binary_tree_t *find_lowest_common_ancestor(binary_tree_t *root,
-											const binary_tree_t *first, const binary_tree_t *second);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 																const binary_tree_t *second);
 /*===========================================================================*/
