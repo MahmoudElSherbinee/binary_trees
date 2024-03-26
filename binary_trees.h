@@ -138,6 +138,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 																const binary_tree_t *second);
 /*===========================================================================*/
 
+/* Task 20. Level-order traversal */
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 /*===========================================================================*/
 
 /*===========================================================================*/
