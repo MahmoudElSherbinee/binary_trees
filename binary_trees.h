@@ -179,6 +179,9 @@ bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 /*===========================================================================*/
 
+/* Task 28. BST - Remove */
+bst_t *find_leftmost_node(bst_t *root);
+bst_t *bst_remove(bst_t *root, int value);
 /*===========================================================================*/
 
 /*===========================================================================*/
