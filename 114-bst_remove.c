@@ -1,88 +1,106 @@
 #include "binary_trees.h"
-
 /**
-* find_leftmost_node - Finds the leftmost node in a binary search tree.
-* This function finds the leftmost node in the
-* binary search tree rooted at the given node.
-* The leftmost node is the node with the smallest value in the tree.
-*
-* @root: A pointer to the root node of the binary search tree.
-*
-* Return: A pointer to the leftmost node in the binary search tree,
-* or NULL if the tree is empty.
-*/
-bst_t *find_leftmost_node(bst_t *root)
+ * successor - get the next successor i mean the min node in the right subtree
+ * @node: tree to check
+ * Return: the min value of this tree
+ */
+int successor(bst_t *node)
 {
-	bst_t *current = root;
+	int left = 0;
 
-	while ((current) && (current->left))
-		current = current->left;
+	if (node == NULL)
+	{
+		return (0);
+	}
+	else
+	{
+		left = successor(node->left);
+		if (left == 0)
+		{
+			return (node->n);
+		}
+		return (left);
+	}
 
-	return (current);
 }
-
 /**
- * bst_remove - Removes a node with a specific value
- * from a binary search tree (BST).
- * This function removes a node with the specified value
- * from the binary search tree (BST) rooted at the given node.
- * If the value is found in the tree, the node containing
- * the value is removed and the tree is adjusted accordingly
- * to maintain the BST property.
- *
- * @root: A pointer to the root node of the binary search tree (BST).
- * @value: The value to be removed from the BST.
- *
- * Return: A pointer to the root node of the modified
- * BST after the removal operation.
+ * two_children - function that gets the next successor using the min
+ * value in the right subtree, and then replace the node value for
+ * this successor
+ * @root: node tat has two children
+ * Return: the value found
+ */
+int two_children(bst_t *root)
+{
+	int new_value = 0;
+
+	new_value = successor(root->right);
+	root->n = new_value;
+	return (new_value);
+}
+/**
+ *remove_type - function that removes a node depending of its children
+ *@root: node to remove
+ *Return: 0 if it has no children or other value if it has
+ */
+int remove_type(bst_t *root)
+{
+	if (!root->left && !root->right)
+	{
+		if (root->parent->right == root)
+			root->parent->right = NULL;
+		else
+			root->parent->left = NULL;
+		free(root);
+		return (0);
+	}
+	else if ((!root->left && root->right) || (!root->right && root->left))
+	{
+		if (!root->left)
+		{
+			if (root->parent->right == root)
+				root->parent->right = root->right;
+			else
+				root->parent->left = root->right;
+			root->right->parent = root->parent;
+		}
+		if (!root->right)
+		{
+			if (root->parent->right == root)
+				root->parent->right = root->left;
+			else
+				root->parent->left = root->left;
+			root->left->parent = root->parent;
+		}
+		free(root);
+		return (0);
+	}
+	else
+		return (two_children(root));
+}
+/**
+ * bst_remove - remove a node from a BST tree
+ * @root: root of the tree
+ * @value: node with this value to remove
+ * Return: the tree changed
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *new = NULL; /* Declare and initialize pointer */
+	int type = 0;
 
-	if (root == NULL) /* If there's no root node or no given value */
-		return (root);
-	if (root->n > value) /* First,searchFor value in left subtree, Then right */
-		root->left = bst_remove(root->left, value);
-	else if (root->n < value)
-		root->right = bst_remove(root->right, value);
-	else if (root->n == value)
-	{	/* If there's no children, simply free the node and return NULL */
-		if (root->left == NULL && root->right == NULL)
-		{	free(root);
-			return (NULL);
-		}
-		if (root->left == NULL)
-		{	new = root->right;
-			if (root->parent)
-			{
-				if (root->parent->left == root)
-					root->parent->left = new;
-				else
-					root->parent->right = new;
-			}
-			new->parent = root->parent;
-			free(root);
-			return (new);
-		}
-		else if (root->right == NULL)
-		{	new = root->left;
-			if (root->parent)
-			{
-				if (root->parent->left == root)
-					root->parent->left = new;
-				else
-					root->parent->right = new;
-			}
-			new->parent = root->parent;
-			free(root);
-			return (new);
-		}
-		else 	/* If there are two children, replace the node's value */
-		{	new = find_leftmost_node(root);
-			root->n = new->n;
-			root->right = bst_remove(root->right, new->n);
-		}
+	if (root == NULL)
+		return (NULL);
+	if (value < root->n)
+		bst_remove(root->left, value);
+	else if (value > root->n)
+		bst_remove(root->right, value);
+	else if (value == root->n)
+	{
+		type = remove_type(root);
+		if (type != 0)
+			bst_remove(root->right, type);
 	}
+	else
+		return (NULL);
 	return (root);
 }
