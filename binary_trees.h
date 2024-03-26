@@ -192,12 +192,16 @@ bst_t *bst_remove(bst_t *root, int value);
 /* Task (120) 30. Is AVL */
 int check_binary_search_tree(const binary_tree_t *root,
 							 int minValue, int maxValue);
-size_t calculate_binary_tree_height(const binary_tree_t *root);
-int binary_tree_balance(const binary_tree_t *tree);
-int calculate_tree_balance(const binary_tree_t *tree);
+/* size_t calculate_binary_tree_height(const binary_tree_t *root);*/
+/* int binary_tree_balance(const binary_tree_t *tree);*/
+/* int calculate_tree_balance(const binary_tree_t *tree);*/
 int binary_tree_is_avl(const binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task (121) 31. AVL - Insert */
+avl_t *insert_avl_node(avl_t **root, avl_t *parent,
+												avl_t **new_node, int value);
+avl_t *avl_insert(avl_t **tree, int value);
 /*===========================================================================*/
 
 /*===========================================================================*/
