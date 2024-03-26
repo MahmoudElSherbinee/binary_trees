@@ -38,31 +38,22 @@ bst_t *find_leftmost_node(bst_t *root)
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	/* Declare and initialize pointer */
-	bst_t *new = NULL;
+	bst_t *new = NULL; /* Declare and initialize pointer */
 
-	/* If there's no root node or no given value, return the root */
-	if (root == NULL)
+	if (root == NULL) /* If there's no root node or no given value */
 		return (root);
-
-	/* First, search for the value in the left subtree */
-	/* Then, search for the value in the right subtree */
-	if (root->n > value)
+	if (root->n > value) /* First,searchFor value in left subtree, Then right */
 		root->left = bst_remove(root->left, value);
 	else if (root->n < value)
 		root->right = bst_remove(root->right, value);
 	else if (root->n == value)
-	{
-		/* If there's no children, simply free the node and return NULL */
+	{	/* If there's no children, simply free the node and return NULL */
 		if (root->left == NULL && root->right == NULL)
-		{
-			free(root);
+		{	free(root);
 			return (NULL);
 		}
-		/* If there's only a right child, replace the node with its right child */
 		if (root->left == NULL)
-		{
-			new = root->right;
+		{	new = root->right;
 			if (root->parent)
 			{
 				if (root->parent->left == root)
@@ -70,15 +61,12 @@ bst_t *bst_remove(bst_t *root, int value)
 				else
 					root->parent->right = new;
 			}
-			if (new)
-				new->parent = root->parent;
+			new->parent = root->parent;
 			free(root);
 			return (new);
 		}
-		/* If there's only a left child, replace the node with its left child */
 		else if (root->right == NULL)
-		{
-			new = root->left;
+		{	new = root->left;
 			if (root->parent)
 			{
 				if (root->parent->left == root)
@@ -86,16 +74,12 @@ bst_t *bst_remove(bst_t *root, int value)
 				else
 					root->parent->right = new;
 			}
-			if (new)
-				new->parent = root->parent;
+			new->parent = root->parent;
 			free(root);
 			return (new);
 		}
-		/* If there are two children, replace the node's value */
-		/* with the value of its successor and remove the successor */
-		else
-		{
-			new = find_leftmost_node(root);
+		else 	/* If there are two children, replace the node's value */
+		{	new = find_leftmost_node(root);
 			root->n = new->n;
 			root->right = bst_remove(root->right, new->n);
 		}
