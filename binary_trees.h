@@ -180,7 +180,9 @@ bst_t *bst_search(const bst_t *tree, int value);
 /*===========================================================================*/
 
 /* Task 28. BST - Remove */
-bst_t *find_leftmost_node(bst_t *root);
+int find_inorder_successor(bst_t *node);
+int replace_with_inorder_successor(bst_t *root);
+int remove_node(bst_t *root);
 bst_t *bst_remove(bst_t *root, int value);
 /*===========================================================================*/
 
