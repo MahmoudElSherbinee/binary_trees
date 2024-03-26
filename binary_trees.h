@@ -190,6 +190,11 @@ bst_t *bst_remove(bst_t *root, int value);
 /*===========================================================================*/
 
 /* Task (120) 30. Is AVL */
+int check_binary_search_tree(const binary_tree_t *root,
+							 int minValue, int maxValue);
+size_t calculate_binary_tree_height(const binary_tree_t *root);
+int binary_tree_balance(const binary_tree_t *tree);
+int calculate_tree_balance(const binary_tree_t *tree);
 int binary_tree_is_avl(const binary_tree_t *tree);
 /*===========================================================================*/
 
