@@ -133,12 +133,16 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*===========================================================================*/
 /*/////////////////////// ADVANCED TASKS /////////////////////*/
 
-/* Task 19. Lowest common ancestor */
+/* Task (100)19. Lowest common ancestor */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 																const binary_tree_t *second);
 /*===========================================================================*/
 
-/* Task 20. Level-order traversal */
+/* Task (101)20. Level-order traversal */
+/*size_t calculate_binary_tree_height(const binary_tree_t *root);*/
+/*size_t binary_tree_height(const binary_tree_t *tree);*/
+void traverse_levelorder_recursive(const binary_tree_t *root,
+								   void (*func)(int), size_t level);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 /*===========================================================================*/
 

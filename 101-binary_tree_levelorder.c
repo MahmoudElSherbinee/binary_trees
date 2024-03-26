@@ -1,69 +1,77 @@
 #include "binary_trees.h"
-size_t recurse_for_height(const binary_tree_t *tree);
-size_t binary_tree_height(const binary_tree_t *tree);
-void recurse_for_levelorder(const binary_tree_t *tree,
-	void (*func)(int), size_t level);
+
 /**
- * binary_tree_levelorder - traverse tree by level
- * @tree: tree to traverse
- * @func: function pointer
+ * traverse_levelorder_recursive - Recursively traverses
+ * a binary tree in level-order.
+ *
+ * This function recursively traverses the binary tree
+ * in level-order and applies a function to each node.
+ * Level-order traversal visits nodes at each level from left to right.
+ *
+ * @root: A pointer to the root node of the binary tree.
+ * @func: A pointer to the function to apply to each node.
+ * @level: The current level being traversed.
  */
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
+void traverse_levelorder_recursive(const binary_tree_t *root,
+								   void (*func)(int), size_t level)
 {
-	size_t height, level = 0;
-
-	if (!tree || !func)
-		return;
-
-	/* retrieve height */
-	height = binary_tree_height(tree);
-
-	while (level <= height)
-	{
-		recurse_for_levelorder(tree, func, level);
-		level++;
-	}
-}
-void recurse_for_levelorder(const binary_tree_t *tree,
-	void (*func)(int), size_t level)
-{
-	if (tree == NULL)
+	if (root == NULL)
 		return;
 
 	if (level == 0)
-		func(tree->n);
+		func(root->n);
 
-	recurse_for_levelorder(tree->left, func, level - 1);
-	recurse_for_levelorder(tree->right, func, level - 1);
+	traverse_levelorder_recursive(root->left, func, level - 1);
+	traverse_levelorder_recursive(root->right, func, level - 1);
 }
 /**
- * binary_tree_height - measure height of tree
- * @tree: tree to measure
+ * calculate_binary_tree_height - Recursively calculates
+ * the height of a binary tree.
+ * This function recursively calculates the height
+ * of the binary tree rooted at the given node.
+ * The height of a binary tree is defined as the maximum number
+ * of edges between the root node and a leaf node.
  *
- * Return: height
+ * @root: A pointer to the root node of the binary tree.
+ *
+ * Return: The height of the binary tree rooted at the given node.
+ */
+size_t calculate_binary_tree_height(const binary_tree_t *root)
+{
+	size_t height_right, height_left;
+
+	/* Base case: If the tree is empty, its height is 0 */
+	if (!root)
+		return (0);
+
+	/* Recursively calculate the height of the left subtree */
+	height_left = calculate_binary_tree_height(root->left);
+
+	/* Recursively calculate the height of the right subtree */
+	height_right = calculate_binary_tree_height(root->right);
+
+	/* Return the height of the taller subtree */
+	/* plus 1 (to account for the root node) */
+	if (height_left > height_right)
+		return (height_left + 1);
+	else
+		return (height_right + 1);
+}
+
+/**
+ * binary_tree_height - Calculates the height of a binary tree.
+ *
+ * This function calculates the height of the binary tree
+ * rooted at the given node.
+ * The height of a binary tree is defined as the maximum number
+ * of edges between the root node and a leaf node.
+ *
+ * @tree: A pointer to the root node of the binary tree.
+ * Return: The height of the binary tree rooted at the given node.
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	return (recurse_for_height(tree) - 1);
-}
-/**
- * recurse_for_height - measure height
- * @tree: tree to measure
- *
- * Return: height
- */
-size_t recurse_for_height(const binary_tree_t *tree)
-{
-	size_t heightR, heightL;
-
-	if (!tree)
-		return (0);
-
-	heightL = recurse_for_height(tree->left);
-	heightR = recurse_for_height(tree->right);
-
-	if (heightL > heightR)
-		return (heightL + 1);
-	else
-		return (heightR + 1);
+	/* Calculate the height using the recursive function */
+	/* and subtract 1 to exclude the root node */
+	return (calculate_binary_tree_height(tree) - 1);
 }
