@@ -179,16 +179,18 @@ bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 /*===========================================================================*/
 
-/* Task 28. BST - Remove */
+/* Task (114) 28. BST - Remove */
 int find_inorder_successor(bst_t *node);
 int replace_with_inorder_successor(bst_t *root);
 int remove_node(bst_t *root);
 bst_t *bst_remove(bst_t *root, int value);
 /*===========================================================================*/
 
-/* Task 29. Big O #BST */
+/* Task (115) 29. Big O #BST */
 /*===========================================================================*/
 
+/* Task (120) 30. Is AVL */
+int binary_tree_is_avl(const binary_tree_t *tree);
 /*===========================================================================*/
 
 /*===========================================================================*/
