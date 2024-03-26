@@ -161,6 +161,9 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 /*===========================================================================*/
 
+/* Task (110)24. Is BST */
+int IsBinarySearch_tree_recursive(const binary_tree_t *root, int min, int max);
+int binary_tree_is_bst(const binary_tree_t *tree);
 /*===========================================================================*/
 
 /*===========================================================================*/
