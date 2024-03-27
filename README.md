@@ -1,5 +1,8 @@
 # Binary Trees Data Structure in C
 
+# By: MAHMOUD EL SHERBINE
+
+
 ## Overview
 
 This repository contains an implementation of the binary tree data structure in C. Binary trees are a fundamental data structure used in computer science for organizing and manipulating hierarchical data.
@@ -121,3 +124,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ```
 
 This README provides an overview of the binary tree implementation in C, including features, usage instructions, an example, information about contributing, and licensing details. Adjustments can be made based on specific requirements or additional details you want to include.
+
+
+
+
+# By: MAHMOUD EL SHERBINE
