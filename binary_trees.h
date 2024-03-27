@@ -238,7 +238,8 @@ int calculate_binary_treeHeight(const binary_tree_t *root);
 void swap_nodes(heap_t **node_ptr, heap_t **child_ptr);
 heap_t *heap_insert(heap_t **root, int value);
 /*===========================================================================*/
-
+/* Task (132) 38. Heap - Array to Binary Heap */
+heap_t *array_to_heap(int *array, size_t size);
 /*===========================================================================*/
 
 /*===========================================================================*/
