@@ -241,15 +241,23 @@ heap_t *heap_insert(heap_t **root, int value);
 /* Task (132) 38. Heap - Array to Binary Heap */
 heap_t *array_to_heap(int *array, size_t size);
 /*===========================================================================*/
-
+/* Task (133) 39. Heap - Extract */
+int count_nodes_in_heap(binary_tree_t *current_node);
+void trickle_down(heap_t *current_parent);
+heap_t *find_parent(heap_t *current_node, int current_index, int target_index);
+void delete_last_node(heap_t **tree_root, heap_t *parent_node);
+int heap_extract(heap_t **root);
+/*===========================================================================*/
+/* Task (134) 40. Heap - Sort */
 /*===========================================================================*/
 
+/* Task (135) 41. Big O #Binary Heap */
 /*===========================================================================*/
 
-/*===========================================================================*/
 
-/*===========================================================================*/
 
+
+						/*	MAHMOUD EL SHERBINE */
 
 
 
