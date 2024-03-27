@@ -233,6 +233,9 @@ int is_heap(const binary_tree_t *node);
 int binary_tree_is_heap(const binary_tree_t *tree);
 /*===========================================================================*/
 /* Task (131) 37. Heap - Insert */
+int calculate_binary_treeHeight(const binary_tree_t *root);
+/* int binary_tree_is_perfect(const binary_tree_t *tree);*/
+void swap_nodes(heap_t **node_ptr, heap_t **child_ptr);
 heap_t *heap_insert(heap_t **root, int value);
 /*===========================================================================*/
 
@@ -245,7 +248,6 @@ heap_t *heap_insert(heap_t **root, int value);
 /*===========================================================================*/
 
 /*===========================================================================*/
-
 
 
 
