@@ -248,7 +248,10 @@ heap_t *find_parent(heap_t *current_node, int current_index, int target_index);
 void delete_last_node(heap_t **tree_root, heap_t *parent_node);
 int heap_extract(heap_t **root);
 /*===========================================================================*/
+
 /* Task (134) 40. Heap - Sort */
+int count_nodes(binary_tree_t *current_node);
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
 /*===========================================================================*/
 
 /* Task (135) 41. Big O #Binary Heap */
@@ -256,9 +259,7 @@ int heap_extract(heap_t **root);
 
 
 
-
 						/*	MAHMOUD EL SHERBINE */
-
 
 
 
