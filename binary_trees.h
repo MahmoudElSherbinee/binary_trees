@@ -225,6 +225,11 @@ avl_t *sorted_array_to_avl(int *array, size_t size);
 /*===========================================================================*/
 
 /* Task (130) 36. Is Binary heap */
+/* int is_complete_recursive(const binary_tree_t */
+/* *tree, size_t index, size_t size) */
+/* size_t binary_tree_size(const binary_tree_t *tree); */
+/* int binary_tree_is_complete(const binary_tree_t *tree); */
+int is_heap(const binary_tree_t *node);
 int binary_tree_is_heap(const binary_tree_t *tree);
 /*===========================================================================*/
 
