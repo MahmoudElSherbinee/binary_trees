@@ -11,15 +11,16 @@
 */
 int count_nodes(binary_tree_t *current_node)
 {
+	int left_count, right_count;
 	/* If the current node is NULL, return 0 */
 	if (!current_node)
 		return (0);
 
 	/* Recursively count nodes in the left subtree */
-	int left_count = count_nodes(current_node->left);
+	left_count = count_nodes(current_node->left);
 
 	/* Recursively count nodes in the right subtree */
-	int right_count = count_nodes(current_node->right);
+	right_count = count_nodes(current_node->right);
 
 	/* Return the total count, which includes the current node */
 	return (1 + left_count + right_count);
